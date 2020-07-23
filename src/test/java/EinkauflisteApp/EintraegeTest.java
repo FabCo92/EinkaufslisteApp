@@ -6,9 +6,26 @@ package EinkauflisteApp;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
+import org.junit.Before;
+
 public class EintraegeTest {
-    @Test public void testConstructor() {
-        Eintraege eintrag = new Eintraege("Eier", 1);
+	
+	Eintraege eintrag = new Eintraege("Eier", 1);
+	
+    @Test 
+    public void testConstructor() {
         assertNotNull(eintrag);
+    }
+    
+    @Test 
+    public void testSetBezeichner() {
+        eintrag.setBezeichner("Brot");
+        assertEquals("Brot",eintrag.getBezeichner());
+    }
+    
+    @Test 
+    public void testSetMenge() {
+        eintrag.setMenge(7);
+        assertEquals(7,eintrag.getMenge());
     }
 }
