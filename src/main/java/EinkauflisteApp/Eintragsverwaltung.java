@@ -1,10 +1,12 @@
 package EinkauflisteApp;
 
-import java.util.HashSet;
+import java.util.HashMap;
+import java.util.Map;
 
 public class Eintragsverwaltung {
 	private static Eintragsverwaltung instance;
-	private HashSet<Eintraege> eintraege;
+	private Map<String, Integer> eintraege = new HashMap<String, Integer>();
+	
 
 	private Eintragsverwaltung() {
 	}
@@ -23,65 +25,45 @@ public class Eintragsverwaltung {
 
 	/**
 	 * Fügt einen Eintrag hinzu
-	 * @param bez der Bezeichner
+	 * 
+	 * @param bez   der Bezeichner
 	 * @param menge die Menge
 	 */
 	public void eintragHinzu(String bez, int menge) {
-		//Falls es den schon gibt, ändert er nur die Menge
-		if (gibtEsSchon(bez)) {
-			for (Eintraege ein : eintraege) {
-				if (bez == ein.getBezeichner()) {
-					int alteMenge = ein.getMenge();
-					eintraege.remove(ein);
-					Eintraege e = new Eintraege(bez, menge + alteMenge);
-					eintraege.add(e);
-				}
-			}
+		// Falls es den schon gibt, ändert er nur die Menge
+		if (eintraege.containsKey(bez)) {
+			int alteMenge = eintraege.get(bez);
+			eintraege.remove(bez);
+			eintraege.put(bez, menge + alteMenge);
 		} else {
-			Eintraege e = new Eintraege(bez, menge);
-			eintraege.add(e);
+			eintraege.put(bez, menge);
 		}
-
 	}
 
 	/**
 	 * Editiert einen Eintrag
-
-	 * @param ein Der betreffende Eintrag
-	 * @param bez der neue Bezeichner
+	 * 
+	 * @param ein   Der betreffende Eintrag
+	 * @param bez   der neue Bezeichner
 	 * @param menge die neue Menge
 	 */
-	public void eintragEdit(Eintraege ein, String bez, int menge) {
-			eintraege.remove(ein);
-			if(ein.getBezeichner() != bez) ein.setBezeichner(bez);
-			if(ein.getMenge() != menge) ein.setMenge(menge);
-
+	public void eintragEdit(String id, String bez, int menge) {
+		eintraege.remove(id);
+		eintraege.put(bez,menge);
 	}
-	
+
 	/**
 	 * Entfernt einen Eintrag
 	 * 
 	 * @param bez der Bezeichner der entfernt werden soll
 	 */
 	public void eintragEntfernen(String bez) {
-		for (Eintraege ein : eintraege) {
-			if (bez == ein.getBezeichner()) {
-				eintraege.remove(ein);
-			}
-		}
+		eintraege.remove(bez);
 
 	}
 
-	/**
-	 * Helferfunktion um zu schauen, ob es einen Eintrag mit dem Bezeichner schon gibt
-	 * @param bez der Bezeichner
-	 * @return true, wenn es ihn gibt
-	 */
-	public boolean gibtEsSchon(String bez) {
-		for (Eintraege ein : eintraege) {
-			if (bez == ein.getBezeichner())
-				return true;
-		}
-		return false;
+	public Map<String, Integer> getEintraege() {
+		return new HashMap<String, Integer>(eintraege);
 	}
+
 }
