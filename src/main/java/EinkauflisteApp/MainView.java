@@ -15,7 +15,7 @@ public class MainView extends Application {
 	        Button btn = new Button();
 	        btn.setText("Neuer Eintrag");
 	        btn.setOnAction(e -> {
-	        	System.out.println("Neuer Eintrag!");
+	        	System.out.println("Neuer Eintrag! bla");
 	        });
 	        
 	        StackPane root = new StackPane();
