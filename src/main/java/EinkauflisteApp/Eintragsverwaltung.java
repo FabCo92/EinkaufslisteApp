@@ -44,6 +44,25 @@ public class Eintragsverwaltung {
 
 	}
 
+	/**
+	 * Editiert einen Eintrag
+
+	 * @param ein Der betreffende Eintrag
+	 * @param bez der neue Bezeichner
+	 * @param menge die neue Menge
+	 */
+	public void eintragEdit(Eintraege ein, String bez, int menge) {
+			eintraege.remove(ein);
+			if(ein.getBezeichner() != bez) ein.setBezeichner(bez);
+			if(ein.getMenge() != menge) ein.setMenge(menge);
+
+	}
+	
+	/**
+	 * Entfernt einen Eintrag
+	 * 
+	 * @param bez der Bezeichner der entfernt werden soll
+	 */
 	public void eintragEntfernen(String bez) {
 		for (Eintraege ein : eintraege) {
 			if (bez == ein.getBezeichner()) {
