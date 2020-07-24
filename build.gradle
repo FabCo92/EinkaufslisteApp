@@ -9,7 +9,11 @@
 plugins {
     // Apply the java-library plugin to add support for Java Library
     id 'java-library'
+    id 'application'
+    id 'org.openjfx.javafxplugin' version '0.0.8'
 }
+
+mainClassName = 'EinkaufListeApp.MainView'
 
 repositories {
     // Use jcenter for resolving dependencies.
@@ -26,4 +30,9 @@ dependencies {
 
     // Use JUnit test framework
     testImplementation 'junit:junit:4.12'
+}
+
+javafx {
+	version = '11'
+	modules = [ 'javafx.controls', 'javafx.fxml' ]
 }
