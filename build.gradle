@@ -33,6 +33,6 @@ dependencies {
 }
 
 javafx {
-	version = '13'
+	version = '12'
 	modules = [ 'javafx.controls', 'javafx.fxml' ]
 }
