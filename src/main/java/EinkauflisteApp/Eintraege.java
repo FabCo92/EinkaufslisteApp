@@ -13,14 +13,14 @@ package EinkauflisteApp;
 public class Eintraege {
 
 	private String bezeichner;
-	private int menge;
+	private String menge;
 	/**
 	 * Konstruktor
 	 * 
 	 * @param bezeichner Der Bezeichner des Produkts
 	 * @param menge Die benötigte Menge
 	 */
-	public Eintraege(String bezeichner, int menge) {
+	public Eintraege(String bezeichner, String menge) {
 		this.bezeichner = bezeichner;
 		this.menge = menge;
 	}
@@ -34,11 +34,11 @@ public class Eintraege {
 		return bezeichner;
 	}
 	
-	public void setMenge (int menge) {
+	public void setMenge (String menge) {
 		this.menge = menge;
 	}
 	
-	public int getMenge() {
+	public String getMenge() {
 		return menge;
 	}
 }

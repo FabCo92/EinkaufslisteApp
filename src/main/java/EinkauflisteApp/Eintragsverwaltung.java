@@ -28,7 +28,7 @@ public class Eintragsverwaltung {
 	 * @param bez   der Bezeichner
 	 * @param menge die Menge
 	 */
-	public Eintraege eintragHinzu(String bez, int menge) {
+	public Eintraege eintragHinzu(String bez, String menge) {
 		Eintraege ein = new Eintraege(bez,menge);
 		eintraege.add(ein);
 		return ein;
@@ -44,7 +44,7 @@ public class Eintragsverwaltung {
 	 * @param bez   der neue Bezeichner
 	 * @param menge die neue Menge
 	 */
-	public void eintragEdit(Eintraege ein, String bez, int menge) {
+	public void eintragEdit(Eintraege ein, String bez, String menge) {
 		ein.setBezeichner(bez);
 		ein.setMenge(menge);
 	}

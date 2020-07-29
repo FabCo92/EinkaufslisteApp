@@ -11,7 +11,7 @@ public class EintragsverwaltungTest {
 	@Before
 	public void setUp() throws Exception {
 		ev = Eintragsverwaltung.getInstance();
-		ein = ev.eintragHinzu("Eier", 2);
+		ein = ev.eintragHinzu("Eier", "2");
 		
 	}
 
@@ -23,16 +23,16 @@ public class EintragsverwaltungTest {
 	@Test
 	public void testEintragHinzu() {
 		int before = ev.getEintraege().size();
-		ev.eintragHinzu("Butter", 2);
+		ev.eintragHinzu("Butter", "2");
 		int after = ev.getEintraege().size();
 		assertEquals(before+1,after);
 	}
 
 	@Test
 	public void testEintragEdit() {
-		ev.eintragEdit(ein, "Brot", 3);
-		int value = ein.getMenge();
-		assertEquals(value,3);
+		ev.eintragEdit(ein, "Eier", "3");
+		String value = ein.getMenge();
+		assertEquals(value,"3");
 		
 			
 	}
@@ -49,7 +49,7 @@ public class EintragsverwaltungTest {
 	@Test
 	public void testEintragEntfernenExistiertNicht() {
 		int before = ev.getEintraege().size();
-		Eintraege ein2 = new Eintraege("String",5);
+		Eintraege ein2 = new Eintraege("String","5");
 		ev.eintragEntfernen(ein2);
 		int after = ev.getEintraege().size();
 		assertEquals(before,after);

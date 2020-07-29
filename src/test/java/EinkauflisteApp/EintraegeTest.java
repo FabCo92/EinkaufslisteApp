@@ -9,7 +9,7 @@ import static org.junit.Assert.*;
 
 public class EintraegeTest {
 	
-	Eintraege eintrag = new Eintraege("Eier", 1);
+	Eintraege eintrag = new Eintraege("Eier", "1");
 	
     @Test 
     public void testConstructor() {
@@ -24,7 +24,7 @@ public class EintraegeTest {
     
     @Test 
     public void testSetMenge() {
-        eintrag.setMenge(7);
-        assertEquals(7,eintrag.getMenge());
+        eintrag.setMenge("7");
+        assertEquals("7",eintrag.getMenge());
     }
 }
