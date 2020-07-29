@@ -1,11 +1,10 @@
 package EinkauflisteApp;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.ArrayList;
 
 public class Eintragsverwaltung {
 	private static Eintragsverwaltung instance;
-	private Map<String, Integer> eintraege = new HashMap<String, Integer>();
+	private ArrayList<Eintraege> eintraege = new ArrayList<Eintraege>();
 	
 
 	private Eintragsverwaltung() {
@@ -29,16 +28,14 @@ public class Eintragsverwaltung {
 	 * @param bez   der Bezeichner
 	 * @param menge die Menge
 	 */
-	public void eintragHinzu(String bez, int menge) {
-		// Falls es den schon gibt, ändert er nur die Menge
-		if (eintraege.containsKey(bez)) {
-			int alteMenge = eintraege.get(bez);
-			eintraege.remove(bez);
-			eintraege.put(bez, menge + alteMenge);
-		} else {
-			eintraege.put(bez, menge);
-		}
+	public Eintraege eintragHinzu(String bez, int menge) {
+		Eintraege ein = new Eintraege(bez,menge);
+		eintraege.add(ein);
+		return ein;
 	}
+		
+		
+		
 
 	/**
 	 * Editiert einen Eintrag
@@ -47,23 +44,23 @@ public class Eintragsverwaltung {
 	 * @param bez   der neue Bezeichner
 	 * @param menge die neue Menge
 	 */
-	public void eintragEdit(String id, String bez, int menge) {
-		eintraege.remove(id);
-		eintraege.put(bez,menge);
+	public void eintragEdit(Eintraege ein, String bez, int menge) {
+		ein.setBezeichner(bez);
+		ein.setMenge(menge);
 	}
 
 	/**
 	 * Entfernt einen Eintrag
 	 * 
-	 * @param bez der Bezeichner der entfernt werden soll
+	 * @param ein der Eintrag der entfernt werden soll
 	 */
-	public void eintragEntfernen(String bez) {
-		eintraege.remove(bez);
+	public void eintragEntfernen(Eintraege ein) {
+		if(eintraege.contains(ein)) eintraege.remove(ein);
 
 	}
 
-	public Map<String, Integer> getEintraege() {
-		return new HashMap<String, Integer>(eintraege);
+	public ArrayList<Eintraege> getEintraege() {
+		return new ArrayList<Eintraege>(eintraege);
 	}
 
 }
