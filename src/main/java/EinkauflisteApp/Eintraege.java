@@ -3,6 +3,7 @@
  */
 package EinkauflisteApp;
 
+import java.io.Serializable;
 
 /**
  * @author Fabian Seelert
@@ -10,8 +11,12 @@ package EinkauflisteApp;
  * Diese Klasse baut die Einträge in der Einkaufsliste
  *
  */
-public class Eintraege {
+public class Eintraege implements Serializable{
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -3966271017527959798L;
 	private String bezeichner;
 	private String menge;
 	/**
