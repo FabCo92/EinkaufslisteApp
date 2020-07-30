@@ -71,18 +71,23 @@ public class MainView extends Application {
 	 * Methode, um die Tabelle zu erstellen 
 	 */
 	private void tabelleBauen() {
+		//damit Tabelle editierbar ist
 		table.setEditable(true);
 
+		//Spalte für Produktnamen
 		TableColumn<Eintraege, String> prodCol = new TableColumn<Eintraege, String>("Produkt");
 		prodCol.setEditable(true);
 		prodCol.setMinWidth(100);
 		prodCol.setCellFactory(TextFieldTableCell.forTableColumn());
 		prodCol.setCellValueFactory(new PropertyValueFactory<>("bezeichner"));
+		
+		// Ändert den jeweiligen Eintrag mittels Verwaltungsklasse
 		prodCol.setOnEditCommit(e -> {
 			ev.eintragEdit(table.getSelectionModel().getSelectedItem(), e.getNewValue(),
 					table.getSelectionModel().getSelectedItem().getMenge());
 		});
 
+		//Spalte für Mengen
 		TableColumn<Eintraege, String> nrCol = new TableColumn<Eintraege, String>("Menge");
 		nrCol.setEditable(true);
 		nrCol.setMinWidth(100);
@@ -93,7 +98,10 @@ public class MainView extends Application {
 					table.getSelectionModel().getSelectedItem().getBezeichner(), e.getNewValue());
 		});
 
+		//Füllt Tabelle mit Einträgen
 		table.setItems(data);
+		
+		//Füllt Tabelle mit den Spalten
 		table.getColumns().add(prodCol);
 		table.getColumns().add(nrCol);
 
