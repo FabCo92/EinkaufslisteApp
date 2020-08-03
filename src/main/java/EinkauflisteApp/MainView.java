@@ -162,6 +162,11 @@ public class MainView extends Application {
 			//hier löscht er die in der Tabelle erscheinenden Elemente
 			data.clear();
 		});
+		
+		//Button Style
+		saveButton.setStyle("-fx-background-color: #00FF00");
+		clearButton.setStyle("-fx-background-color: #FF0000");
+		
 		//Buttons werden hier horizontal angeordnet
 		buttonBox.getChildren().addAll(saveButton, clearButton);
 	}
