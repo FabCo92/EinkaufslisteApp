@@ -17,5 +17,7 @@ fügt den übergebenen Bezeichner und die Menge als Zeichenkette als Eintrag hin
 ### Beispieleinträge
 
 Bezeichner: Nudeln, Menge: 500g
+
 Bezeichner: Ananas, Menge: 1
+
 Bezeichner: Bier, Menge: 2 Kisten
