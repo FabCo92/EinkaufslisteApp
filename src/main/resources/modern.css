@@ -4,23 +4,28 @@
 }
 
 .label {
-    -fx-font-size: 18pt;
-    -fx-text-fill: #444444; /* Dark gray text color */
+    -fx-font-size: 14pt;
+    -fx-text-fill: #ffffff; /* Dark gray text color */
 }
 
 .table-view {
-    -fx-background-color: #f5f5f5; /* Light gray background color */
+    -fx-background-color: #a1a1a1;  /* Light gray background color */
+    -fx-table-cell-border-color: transparent;
+}
+/** color everything under the column header */
+.table-view .column-header * {
+    -fx-background-color: #909090;
     -fx-table-cell-border-color: transparent;
 }
 
 .table-row-cell {
-    -fx-background-color: #ffffff; /* Bright white background color */
+    -fx-background-color: #a1a1a1; /* Bright white background color */
 }
 
 .table-view .table-cell {
-    -fx-text-fill: #444444; /* Dark gray text color */
+    -fx-text-fill: #ffffff; /* Dark gray text color */
     -fx-alignment: CENTER;
-    -fx-border-color: transparent;
+    -fx-border-color: #a5a5a5;
 }
 
 .text-field {
